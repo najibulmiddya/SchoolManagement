@@ -8,10 +8,10 @@
                 <!-- Button trigger modal -->
                 <div class="float-right">
                     <button type="button" class="btn btn-primary float-left" data-toggle="modal" data-target="#exampleModalCenter">
-                        Create
+                        Add New
                     </button>
                 </div>
-                
+
                 <!-- Tabile data -->
                 <table id="example" class="table table-bordered" style="width:100%">
                     <thead class="table-success">
@@ -215,7 +215,7 @@
                                 d.total_number,
                                 d.months,
                                 d.year,
-                                `<a href="javascript:void(0);" id="deleteRecord" class="btn btn-xs btn-danger" data-id="${d.id}">Delete</a>`
+                                `<a href="javascript:void(0);" id="deleteRecord" class="btn btn-danger" data-id="${d.id}"> <i class="bi bi-trash"> </i></a>`
                             ];
                         });
                     }

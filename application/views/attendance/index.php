@@ -44,7 +44,7 @@
                 <div class="float-right"><a href="<?= base_url('/attendance/create') ?>" class="btn btn-primary"><span class="fa fa-plus"></span> Attendance New</a></div>
 
                 <table id="example" class="table table-bordered" style="width:100%">
-                    <thead>
+                    <thead class="bg-info">
                         <tr>
                             <th class="text-light">S.No</th>
                             <th class="text-light">Name</th>
@@ -52,7 +52,7 @@
                             <th class="text-light">Attendance</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-secondary text-dark">
 
                     </tbody>
                 </table>

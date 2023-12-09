@@ -1,5 +1,5 @@
 <?php
-defined ('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 
 /**
@@ -15,7 +15,7 @@ defined ('BASEPATH') or exit('No direct script access allowed');
  * @return    ...
  *
  */
-  
+
 class Student_admission extends CI_Controller
 {
   private $ud = [];
@@ -29,7 +29,7 @@ class Student_admission extends CI_Controller
 
   private function view($id = null)
   {
-    if ($students = $this->admission_model->get_student($id) ) {
+    if ($students = $this->admission_model->get_student($id)) {
       $class = $this->student_class_model->get_all();
       view('admission/edit', compact('students', 'class'), "Portal | Admission Create");
     } else {
@@ -63,38 +63,35 @@ class Student_admission extends CI_Controller
         $academic_year = $this->input->post('academic_year');
 
         // pp($_POST);
-
-
-
         if ($this->form_validation->run() == true) {
 
-        if ($student = $this->student_model->get($student_id)) {
-          $data = [
-            "student_id" => $student_id,
-            "prev_class_id" => $student->class_id,
-            "current_class_id" => $current_class_id,
-            "academic_year" => $academic_year,
-            "remarks" => $remarks,
-          ];
-          // pp($student);
-          if ($id) {
-            if ($resp = $this->admission_model->update($id, $data)) {
-              alert("success", "Admission updated");
+          if ($student = $this->student_model->get($student_id)) {
+            $data = [
+              "student_id" => $student_id,
+              "prev_class_id" => $student->class_id,
+              "current_class_id" => $current_class_id,
+              "academic_year" => $academic_year,
+              "remarks" => $remarks,
+            ];
+            // pp($student);
+            if ($id) {
+              if ($resp = $this->admission_model->update($id, $data)) {
+                alert("success", "Admission updated successfully");
+              } else {
+                alert("info", "Admission no changes");
+              }
             } else {
-              alert("info", "Admission no changes");
+              if ($resp = $this->admission_model->insert($data)) {
+                alert("success", "Admission successfully");
+              } else {
+                alert("danger", "Admission failed");
+              }
             }
           } else {
-            if ($resp = $this->admission_model->insert($data)) {
-              alert("success", "Admission successfully");
-            } else {
-              alert("danger", "Admission failed");
-            }
+            alert("danger", "Given student not exist");
           }
-        } else {
-          alert("danger", "Given student not exist");
-        }
 
-        redirect(base_url("student_admission"));
+          redirect(base_url("student_admission"));
         } else {
           $this->view($id);
         }
@@ -107,28 +104,25 @@ class Student_admission extends CI_Controller
   }
 
 
-  public function delete($id = null)
+  public function delete()
   {
     try {
-      if ($this->admission_model->get($id)) {
-        if ($this->admission_model->delete($id)) {
-          alert("success", "Student deleted successfully");
-        } else {
-          alert("danger", "Student delete failed");
-        }
-        redirect(base_url("student_admission"));
+      $id = $this->input->get('id');
+      if ($this->admission_model->delete($id)) {
+        echo jresp(true, "Student deleted successfully");
       } else {
-        alert("danger", "Student not available");
+        echo jresp(false, "deleted failed");
       }
     } catch (\Throwable $th) {
       redirect(base_url("student_admission"));
     }
   }
 
-  public function get($class_id = null, $year=null)
+  public function get()
   {
-    if ($data = $this->admission_model->all_get($class_id,$year)) {
-      echo json_encode($data);
+    $class_id = $this->input->get('class_id');
+    if ($data = $this->admission_model->all_get($class_id)) {
+      echo jresp(true, "Data get Successfully", $data);
     } else {
       echo jresp(false, "Data not available");
     }

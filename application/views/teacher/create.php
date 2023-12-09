@@ -3,7 +3,7 @@
     <h3 class="page-title"> Teacher Create </h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?= base_url('student') ?>">Teacher</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('teacher') ?>">Teachers</a></li>
             <li class="breadcrumb-item active" aria-current="page">Create</li>
         </ol>
     </nav>

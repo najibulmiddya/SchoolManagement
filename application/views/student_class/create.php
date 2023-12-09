@@ -4,7 +4,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
 
-            <li class="breadcrumb-item"><a href="<?= base_url('student_class') ?>">Class</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('student_class') ?>">Classes</a></li>
             <li class="breadcrumb-item active" aria-current="page">Create</li>
         </ol>
     </nav>

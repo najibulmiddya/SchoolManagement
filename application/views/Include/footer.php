@@ -31,19 +31,16 @@
  <!-- endinject -->
  <!-- Custom js for this page -->
  <script src="<?= base_url('assets/js/dashboard.js') ?>"></script>
+
  <!-- End custom js for this page -->
  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
+
  <!-- my jquery file -->
  <script src="<?= base_url('assets/js/my_jquery.js') ?>"></script>
- <!-- <script src="<?= base_url('assets/js/ajax.js') ?>"></script> -->
- <!-- <script src="<?= base_url('assets/my_js/crud_subject.js') ?>"></script> -->
-
-
-
 
  <script src="<?= base_url('assets/js/ajax.js') ?>"></script>
- <!-- <script src="<?= base_url('assets/my_js/crud_subject.js') ?>"></script> -->
+
 
 
  </body>

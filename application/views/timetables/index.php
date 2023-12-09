@@ -4,9 +4,13 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Classes TimeTabiles</h4>
+
+                <!-- alerat message -->
                 <div id="alert-m">
 
                 </div>
+
+                <!-- Filter by class name form -->
                 <form class="" method="post">
                     <div class="row">
                         <div class="form-group col-md-3 my-2 ">
@@ -21,6 +25,7 @@
                     </div>
                 </form>
 
+                <!-- button  -->
                 <div class="float-right"><a href="javascript:void(0);" id="add-new" class="btn btn-primary" data-toggle="modal" data-target="#addModal"><span class="fa fa-plus"></span> Add New</a></div>
 
                 <div class="float-left">
@@ -30,7 +35,7 @@
                     </form>
                 </div>
 
-
+                <!-- data table -->
                 <table id="example" class="table  table-bordered" style="width:100%">
                     <thead class="bg-info text-light">
                         <tr>
@@ -164,11 +169,8 @@
                                             <p id="update-time2-error" class="text-danger">The This Fileld is Required.</p>
                                         </div>
                                     </div>
-
-
                                 </div>
                                 <div class="modal-footer">
-
                                     <input type="hidden" name="row_id" id="row_id" class="form-control">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Update</button>
@@ -177,8 +179,6 @@
                         </div>
                     </div>
                 </form>
-
-
             </div>
         </div>
     </div>

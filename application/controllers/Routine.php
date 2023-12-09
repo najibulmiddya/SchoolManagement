@@ -18,11 +18,7 @@ class Routine extends CI_Controller
         // Load a list of routines/results
         $e_type = $this->examType_model->get_exam_types();
         $class = $this->student_class_model->get_all();
-        // $routine= $this->Routine_model->get_all_routines(28);
-        // pp($routine);
         view('routine/index',compact('e_type', 'class'), 'Portal | Routine');
-
-
     }
 
     public function create()
@@ -39,7 +35,6 @@ class Routine extends CI_Controller
             'year' => $this->input->post('year'),
         );
 
-
         try {
             if ($resp = $this->Routine_model->save_routine($data)) {
                 echo jresp(true, "Routine Create successfully ", $resp);
@@ -50,7 +45,6 @@ class Routine extends CI_Controller
             echo jresp(false, "Internal server error");
         }
 
-       
     }
 
     public function edit($id)
@@ -88,14 +82,18 @@ class Routine extends CI_Controller
         }
     }
 
-    public function get_all($class_id = null)
+    public function get_all()
     {
-
-        if ($data = $this->Routine_model->get_all_routines($class_id)) {
-            echo json_encode($data);
-        } else {
-            echo jresp(false, "Data not available");
-        }
+       try {
+            $class_id = $this->input->get('class_id');
+            if ($data = $this->Routine_model->get_all_routines($class_id)) {
+                echo jresp(true, "Data get successfully", $data);
+            } else {
+                echo jresp(false, "Data not available");
+            }
+       } catch (\Throwable $th) {
+            echo jresp(false, "Internal server error");
+       }
     }
 
 

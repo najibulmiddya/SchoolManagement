@@ -72,10 +72,9 @@ class Admission_model extends CI_Model
   }
 
 
-  public function all_get($class_id,$year=null)
+  public function all_get($class_id)
   {
       $this->db->where("current_class_id", $class_id);
-    $this->db->where("academic_year", $year);
       $this->db->select("sa.*, s.name, c.class as current_class, c2.class as prev_class");
       $this->db->from("{$this->table} sa");
       $this->db->join("{$this->table_student} s", "s.id = sa.student_id");

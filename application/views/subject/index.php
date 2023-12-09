@@ -37,7 +37,7 @@
                 <div class="float-right"><a href="javascript:void(0);" id="add-new" class="btn btn-primary" data-toggle="modal" data-target="#addEmpModal"><span class="fa fa-plus"></span> Add New</a></div>
 
                 <table id="example" class="table  table-bordered" style="width:100%">
-                    <thead>
+                    <thead class="bg-success">
                         <tr>
                             <th class="text-light">S.No</th>
                             <th class="text-light">Subject</th>
@@ -54,7 +54,7 @@
                 <!-- add new emp -->
                 <form id="saveEmpForm" method="post">
                     <div class="modal fade" id="addEmpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-dialog" role="document">
 
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -67,9 +67,9 @@
                                 <div class="modal-body">
 
                                     <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">Select Class*</label>
+                                        <label class="col-md-2 col-form-label">Class*</label>
                                         <div class="col-md-10">
-                                            <select class="form-control col-md-2" name="classes" id="classes">
+                                            <select class="form-control" name="classes" id="classes">
                                                 <option value="">Select Class</option>
                                             </select>
                                         </div>
@@ -99,7 +99,7 @@
                 <form id="editEmpForm" method="post">
 
                     <div class="modal fade" id="editEmpModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="editModalLabel">Edit Subject</h5>
@@ -112,7 +112,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-2 col-form-label">Select Class*</label>
                                         <div class="col-md-10" id="class_edit">
-                                            <select class="form-control col-md-2" name="edit_classes" id="edit_classes">
+                                            <select class="form-control" name="edit_classes" id="edit_classes">
 
                                             </select>
                                         </div>

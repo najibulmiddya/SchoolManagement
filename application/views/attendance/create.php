@@ -41,7 +41,7 @@
                 </div>
                 <form id="att_form">
                     <table id="example" class="table table-bordered text-center" style="width:100%">
-                        <thead>
+                        <thead class="bg-success text-light">
                             <tr id="t_thead">
                                 <th class="text-light text-center"> S.No </th>
                                 <th class="text-light text-center"> Name </th>

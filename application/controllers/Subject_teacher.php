@@ -16,23 +16,23 @@ class Subject_teacher extends CI_Controller
     private function view($id = null)
     {
         if ($subject_teacher = $this->subject_teacher_model->get($id)) {
-            // $subject_teacher = $this->subject_teacher_model->get($id);
             $teacher = $this->teacher_model->get_all();
             $clasess = $this->student_class_model->get_all();
-            $subject = $this->subject_model->subjectList();
-            view('subjet-teacher/edit', compact("subject_teacher", "teacher", "clasess", "subject"), "Portal | Subject Teacher Edit");
+            // $subject = $this->subject_model->subjectList();
+            view('subjet-teacher/edit', compact("subject_teacher", "teacher", "clasess",), "Portal | Subject Teacher Edit");
         } else {
-            $subject = $this->subject_model->subjectList();
+            // $subject = $this->subject_model->subjectList();
             $teacher = $this->teacher_model->get_all();
             $clasess = $this->student_class_model->get_all();
-            view('subjet-teacher/create', compact("subject", "teacher", "clasess"), "Portal | Subject Teacher Create");
+            view('subjet-teacher/create', compact("teacher", "clasess"), "Portal | Subject Teacher Create");
         }
     }
 
     public function index()
     {
         $data = $this->subject_teacher_model->get_all();
-        view('subjet-teacher/index', compact('data'), "Portal | Subjet Teacher");
+        $clasess = $this->student_class_model->get_all();
+        view('subjet-teacher/index', compact('data','clasess'), "Portal | Subjet Teacher");
     }
 
     public function save($id = null)

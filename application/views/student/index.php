@@ -20,77 +20,75 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Students</h4>
-                <p class="card-description float-left">
-                    <a href="<?= base_url('student/save') ?>" class="btn btn-xs btn-success ">Create New</a>
-                </p>
 
-
+                <!-- ******************button************** -->
                 <div class="float-right">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <a href="<?= base_url('student/save') ?>" class="btn btn-success ">Add Student</a>
+                </div>
+
+                <div class="float-left">
+                    <button type="button" class="btn btn-primary mr-1" data-toggle="modal" data-target="#exampleModal">
                         <i class="bi bi-envelope"></i> Send Mail
                     </button>
                 </div>
 
-                <div class="float-right">
+                <div class="float-left">
                     <a href="<?= base_url('student/export') ?>" id="Export" class="btn btn-success mr-1"> Export</a>
                 </div>
 
-                <div class="float-right">
+                <div class="float-left">
                     <a href="<?= base_url('GeneratePdfController') ?>" id="GeneratePdf" class="btn btn-primary mr-1">Generate Pdf</a>
                 </div>
 
+                <!-- =====================   data table   ========================= -->
+                <table id="example" class="table table-bordered" style="width:100%">
+                    <thead class="table-warning">
+                        <tr>
+                            <th class="text-light">S.No</th>
+                            <th class="text-light"> Photo </th>
+                            <th class="text-light"> Name </th>
+                            <th class="text-light"> Mobile </th>
+                            <th class="text-light"> Email </th>
+                            <th class="text-light"> Gender </th>
+                            <th class="text-center text-light"> Action </th>
+                        </tr>
+                    </thead>
+                    <tbody id="listRecords" class="table-sm">
+                        <?php
+                        if ($students) :
+                            $a = 1;
+                            foreach ($students as $k => $d) :
+                        ?>
+                                <tr>
+                                    <td><?= $a++ ?></td>
 
-                <div class="table-responsive">
-                    <table id="example" class="table table-bordered" style="width:100%">
-                        <!-- <table id="example" class="table table-striped" style="width:100%"> -->
-                        <thead class="table-warning">
-                            <tr>
-                                <th class="text-light">S.No</th>
-                                <th class="text-light"> Photo </th>
-                                <th class="text-light"> Name </th>
-                                <th class="text-light"> Mobile </th>
-                                <th class="text-light"> Email </th>
-                                <th class="text-light"> Gender </th>
-                                <th class="text-center text-light"> Action </th>
-                            </tr>
-                        </thead>
-                        <tbody id="listRecords">
-                            <?php
-                            if ($students) :
-                                $a = 1;
-                                foreach ($students as $k => $d) :
-                            ?>
-                                    <tr>
-                                        <td><?= $a++ ?></td>
+                                    <td>
+                                        <img style="width: 50px; height:50px;" src="<?php if ($d->photo == "") {
+                                                                                        echo base_url('uploads/download.png');
+                                                                                    } else {
+                                                                                        echo base_url('uploads/' . $d->photo);
+                                                                                    } ?>" />
+                                    </td>
 
-                                        <td>
-                                            <img style="width: 50px; height:50px;" src="<?php if ($d->photo == "") {
-                                                                                            echo base_url('uploads/download.png');
-                                                                                        } else {
-                                                                                            echo base_url('uploads/' . $d->photo);
-                                                                                        } ?>" />
-                                        </td>
+                                    <td><a href="<?= base_url("student/save/{$d->id}") ?>"><?= $d->name ?></a></td>
+                                    <td><?= $d->mobile ?></td>
 
-                                        <td><a href="<?= base_url("student/save/{$d->id}") ?>"><?= $d->name ?></a></td>
-                                        <td><?= $d->mobile ?></td>
+                                    <td><a href="<?= base_url("student/send_mail/{$d->id}") ?>"><?= $d->email ?></a></td>
 
-                                        <td><a href="<?= base_url("student/send_mail/{$d->id}") ?>"><?= $d->email ?></a></td>
+                                    <td><?= $d->gender ?></td>
 
-                                        <td><?= $d->gender ?></td>
+                                    <td>
+                                        <a href="javascript:void(0);" class="btn btn-success view-record" data-id="<?= $d->id ?>"><i class="bi bi-eye"></i></a>
 
-                                        <td>
-                                            <a href="javascript:void(0);" class="btn btn-success btn-xs view-record" data-id="<?= $d->id ?>"><i class="bi bi-eye"></i></a>
+                                        <a href="<?= base_url("student/delete/{$d->id}") ?>" class="btn  btn-danger del-record"><i class="bi bi-trash"></i></a>
+                                    </td>
+                                </tr>
 
-                                            <a href="<?= base_url("student/delete/{$d->id}") ?>" class="btn btn-xs btn-danger del-record"><i class="bi bi-trash"></i></a>
-                                        </td>
-                                    </tr>
+                        <?php endforeach;
+                        endif; ?>
+                    </tbody>
+                </table>
 
-                            <?php endforeach;
-
-                            endif; ?>
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
     </div>
@@ -183,7 +181,6 @@
                     </tbody>
                 </table>
             </div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>

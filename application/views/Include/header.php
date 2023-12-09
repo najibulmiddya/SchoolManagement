@@ -24,11 +24,9 @@
     <link href="<?= base_url('assets/images/favicon.png') ?>" rel="stylesheet" />
     <link href="<?= base_url('assets/images/favicon.png') ?>" rel="shortcut icon" />
 
-    <!-- data tabile -->
-
+    <!-- data tabile js -->
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-
-    <!-- data tabile  -->
+    <!-- data tabile css -->
     <link href="  https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
 
@@ -39,8 +37,6 @@
     <!-- Option 1: Include in HTML -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
-
-
 
 </head>
 
@@ -111,6 +107,7 @@
                 <li class="nav-item nav-category">
                     <span class="nav-link">Navigation</span>
                 </li>
+
                 <li class="nav-item menu-items">
                     <a class="nav-link" href="<?= base_url('dashboard') ?>">
                         <span class="menu-icon">
@@ -146,12 +143,6 @@
                     </div>
                 </li>
 
-
-
-
-
-
-
                 <!-- <li class="nav-item menu-items">
                     <a class="nav-link" href="<?= base_url('student') ?>">
                         <span class="menu-icon">
@@ -181,6 +172,26 @@
                     </a>
                 </li>
 
+
+
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="<?= base_url('payment') ?>">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-table-large"></i>
+                        </span>
+                        <span class="menu-title">Students Payment</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="<?= base_url('TimeTables ') ?>">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-chart-bar"></i>
+                        </span>
+                        <span class="menu-title">TimeTables</span>
+                    </a>
+                </li>
+
+                <!-- ******************  Setup Management********** -->
                 <li class="nav-item menu-items">
                     <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                         <span class="menu-icon">
@@ -201,27 +212,17 @@
                             <li class="nav-item"> <a class="nav-link" href="<?= base_url('ExamType') ?>">Exam Type </a></li>
                             <li class="nav-item"> <a class="nav-link" href="<?= base_url('Routine') ?>">Exam Routine</a></li>
                             <!-- <li class="nav-item"> <a class="nav-link" href="<?= base_url('Result') ?>"> Result</a></li> -->
+                            <!-- 
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('attendance') ?>">Attendance</a></li> -->
 
-                            <!-- <li class="nav-item"> <a class="nav-link" href="<?= base_url('attendance') ?>">Attendance</a></li> -->
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('classroom') ?>">Class Room </a></li>
+
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('library') ?>">Library</a></li>
+
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('Rest_api') ?>">Rest Api</a></li>
+
                         </ul>
                     </div>
-                </li>
-
-                <li class="nav-item menu-items">
-                    <a class="nav-link" href="<?= base_url('payment') ?>">
-                        <span class="menu-icon">
-                            <i class="mdi mdi-table-large"></i>
-                        </span>
-                        <span class="menu-title">Students Payment</span>
-                    </a>
-                </li>
-                <li class="nav-item menu-items">
-                    <a class="nav-link" href="<?= base_url('TimeTables ') ?>">
-                        <span class="menu-icon">
-                            <i class="mdi mdi-chart-bar"></i>
-                        </span>
-                        <span class="menu-title">TimeTables</span>
-                    </a>
                 </li>
             </ul>
         </nav>

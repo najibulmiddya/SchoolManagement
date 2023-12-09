@@ -86,7 +86,7 @@ class Student extends CI_Controller
           ];
 
           if ($id) {
-            if ($this->student_model->update($id, $stu_data)) {
+            if ($resp=$this->student_model->update($id, $stu_data)) {
               alert("success", "Student updated Successfully");
             } else {
               alert("warning", "Student details no Changes");

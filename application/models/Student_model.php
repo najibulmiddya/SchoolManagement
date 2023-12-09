@@ -69,16 +69,6 @@ class Student_model extends CI_Model
   }
 
   
-
-
-  // Test api search whit name
-  public function search($name)
-  {
-    $this->db->select('*');
-    $this->db->from($this->table);
-    $this->db->like('name',$name);
-    return $this->db->get()->result();
-  }
   // ------------------------------------------------------------------------
 
 }

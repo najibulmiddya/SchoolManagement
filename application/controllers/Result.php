@@ -77,10 +77,10 @@ class Result extends CI_Controller
 
     public function get_result($student_id = null)
     {
-        // $student_id=$this->input->get('student_id');
+        $student_id=$this->input->get('student_id');
         if ($data = $this->result_model->result_get($student_id)) {
-            echo json_encode($data);
-            // echo jresp(true, "Data get successfully ", $data);
+            // echo json_encode($data);
+            echo jresp(true, "Data get successfully ", $data);
         } else {
             echo jresp(false, "Data not available");
             // echo jresp(false, "Data not available");

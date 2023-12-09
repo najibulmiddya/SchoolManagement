@@ -1,4 +1,3 @@
-
 <!-- Page header -->
 <div class="page-header">
     <h3 class="page-title"> Classes </h3>
@@ -16,26 +15,21 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Classes</h4>
-                <!-- <p class="card-description">
-                    <a href="<?= base_url('student_class/save') ?>" class="btn btn-xs btn-danger ">Create New</a>
-                </p> -->
+                <!-- button -->
+                <div class="float-right"><a href="<?= base_url('student_class/save') ?>" class="btn btn-success"><span class="fa fa-plus"></span> Add Class</a></div>
 
-                <div class="float-right"><a href="<?= base_url('student_class/save') ?>" class="btn btn-primary"><span class="fa fa-plus"></span> Add Class</a></div>
-
-                <table id="example" class="table table-bordered" style="width:100%">
-                    <!-- <table class="table table-bordered" style="width:100%"> -->
-                        
-                    <thead>
+                <!-- Data Table -->
+                <table id="example" class="table table-bordered text-center" style="width:100%">
+                    <thead class="text-center bg-primary">
                         <tr>
-                            <th class="text-light">S.No</th>
-                            <th class="text-light">Classes</th>
-                            <th class="text-light">Action</th>
+                            <th class="text-light text-center">S.No</th>
+                            <th class="text-light text-center">Classes</th>
+                            <th class="text-light text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center table-sm">
                         <?php
                         if ($class) :
-
                             foreach ($class as $k => $d) :
                         ?>
                                 <tr>
@@ -54,7 +48,6 @@
                         endif; ?>
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>

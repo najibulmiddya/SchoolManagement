@@ -20,7 +20,7 @@
 
 
                 <table id="example" class="table table-striped table-bordered " style="width:100%">
-                    <thead>
+                    <thead class="bg-info">
                         <tr>
                             <th class="text-light"> S.No </th>
                             <th class="text-light"> Name </th>
