@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <title>Rest Api Create</title>
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="bg-primary text-center text-light">Rest Api Testing</h3>
+        <!-- message alart -->
+        <div id="alert-message">
+
+        </div>
+
+        <div class="row">
+            <!-- button  -->
+            <div class="float-left col-md-6 my-2"><a href="javascript:void(0);" class="btn btn-primary"
+                    data-toggle="modal" data-target="#add-model">Add New</a>
+            </div>
+
+            <!-- Filter by class name form -->
+            <div class="col-md-6">
+                <form method="post">
+                    <div class="form-group col-md-6 my-2 float-right">
+                        <input class="form-control" type="search" id="search" name="search" placeholder="search">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- data table -->
+        <table class="table  table-bordered " style="width:100%">
+            <thead class="bg-success">
+                <tr class="text-center">
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Mobile NO</th>
+                    <th>Gender</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="listRecords">
+
+            </tbody>
+        </table>
+
+        <!-- Add Modal -->
+        <div class="modal fade" id="add-model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Student Add</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="add-form" action="" method="POST">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" name="name" id="name">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Age</label>
+                                    <input type="number" class="form-control" name="age" id="age">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Mobile No</label>
+                                    <input type="number" class="form-control" name="number" id="number">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Gender</label>
+                                    <select id="gender" class="form-control" name="gender">
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                        <option value="O">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- edit Modal -->
+        <div class="modal fade" id="edit-model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Student Edit</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="edit-form" action="" method="POST">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" name="edit-name" id="edit-name">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Age</label>
+                                    <input type="number" class="form-control" name="edit-age" id="edit-age">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Mobile No</label>
+                                    <input type="number" class="form-control" name="edit-number" id="edit-number">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Gender</label>
+                                    <select id="edit-gender" class="form-control" name="edit-gender">
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                        <option value="O">Other</option>
+                                    </select>
+                                </div>
+                                <input type="hidden" id="edit-id" class="form-control" name="edit-id">
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <script>
+            $(document).ready(function () {
+
+                // function for Message
+                function message(type, message) {
+                    return `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                        <strong>${type}!</strong> ${message}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>`;
+                }
+
+                // function for json data 
+                function json_data(targatForm) {
+                    let data = $(targatForm).serializeArray();
+                    let obj = {};
+                    for (a = 0; a < data.length; a++) {
+                        if (data[a].value == "") {
+                            return false;
+                        }
+                        obj[data[a].name] = data[a].value;
+                    }
+                    return json = JSON.stringify(obj);
+                }
+
+                // all data get
+                function load_table() {
+                    $('#listRecords').html('');
+                    $.ajax({
+                        url: `http://localhost/SchoolManagement/Rest_api/test_api`,
+                        type: 'get',
+                        dataType: 'JSON',
+                        success: function (resp) {
+                            if (resp.status == true) {
+                                let i = 0;
+
+                                $.each(resp.response, function (key, val) {
+                                    i++
+                                    $('#listRecords').append(`
+                                    <tr class="text-center"> 
+                                        <td>${i}</td>
+                                        <td>${val.name}</td>
+                                        <td>${val.age}</td>
+                                        <td>${val.number}</td>
+                                        <td>${val.gender}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-success" data-id="${val.id}" id="edit-btn" data-toggle="modal" data-target="#edit-model"><i class="bi bi-pencil-square"></i></button>
+
+                                            <button type="button" class="btn btn-danger" data-id="${val.id}" id="delete-btn"><i class="bi bi-trash"></i></button>
+                                            </td>
+                                     </tr>`);
+                                });
+
+
+                            } else {
+                                $('#listRecords').append(` <tr> <td class="text-danger text-center" colspan="6">${resp.mes}</td></tr>`);
+                            }
+                        }
+                    });
+                }
+                load_table();
+
+                // <!-- Data Save -->
+                $('#add-form').on('submit', function (e) {
+                    e.preventDefault();
+                    let data = json_data(this);
+
+                    if (data == false) {
+                        alert("All Fields is Required.");
+                    } else {
+                        $.ajax({
+                            url: `http://localhost/SchoolManagement/Rest_api/api_data_insrt`,
+                            type: 'POST',
+                            dataType: 'JSON',
+                            data: data,
+                            success: function (resp) {
+                                if (resp.status == true) {
+                                    $('#add-model').modal('hide');
+                                    $('add-form').trigger("reset")
+                                    load_table();
+                                    let m = message('success', resp.mes);
+                                    $('#alert-message').html(m);
+                                } else {
+                                    let m = message('warning', resp.mes);
+                                    $('#alert-message').html(m);
+                                    return false;
+                                }
+                            }
+                        });
+                    }
+
+                });
+
+                // Recrord Show in Edit Model
+
+                $('body').on('click', '#edit-btn', function () {
+                    let sid = $(this).data('id');
+                    let obj = { id: sid };
+                    let json_data = JSON.stringify(obj);
+                    $.ajax({
+                        url: `http://localhost/SchoolManagement/Rest_api/test_api_one`,
+                        type: 'POST',
+                        dataType: 'JSON',
+                        data: json_data,
+                        success: function (resp) {
+                            if (resp.status == true) {
+                                $('#edit-name').val(resp.response.name);
+                                $('#edit-age').val(resp.response.age);
+                                $('#edit-number').val(resp.response.number);
+                                $('#edit-id').val(resp.response.id);
+
+                                // let gender = "";
+                                // if (resp.response.gender == M) {
+                                //     gender = `<option selected value="M">Male</option>
+                                //         <option value="F">Female</option>
+                                //         <option value="O">Other</option>`;
+                                // } else if (resp.response.gender == F) {
+                                //     gender = `<option value="M">Male</option>
+                                //         <option selected value="F">Female</option>
+                                //         <option value="O">Other</option>`;
+                                // } else if (resp.response.gender == O) {
+                                //     gender = `<option value="M">Male</option>
+                                //         <option value="F">Female</option>
+                                //         <option selected value="O">Other</option>`;
+                                // }
+                                // $('#edit-gender').append(gender);
+
+                            } else {
+                                let m = message('warning', resp.mes);
+                                $('#alert-message').html(m);
+                                return false;
+                            }
+                        }
+                    });
+                });
+
+
+                // Edit model save data
+                $('#edit-form').on('submit', function (e) {
+                    e.preventDefault();
+                    let data = json_data(this);
+                    if (data == false) {
+                        alert("All Fields is Required.");
+                    } else {
+                        $.ajax({
+                            url: `http://localhost/SchoolManagement/Rest_api/api_data_update`,
+                            type: 'POST',
+                            dataType: 'JSON',
+                            data: data,
+                            success: function (resp) {
+                                if (resp.status == true) {
+                                    $('#edit-model').modal('hide');
+                                    load_table();
+                                    let m = message('success', resp.mes);
+                                    $('#alert-message').html(m);
+                                } else {
+                                    let m = message('warning', resp.mes);
+                                    $('#alert-message').html(m);
+                                    return false;
+                                }
+                            }
+                        });
+                    }
+
+                });
+
+                // Recrord Delete
+                $('body').on('click', '#delete-btn', function () {
+                    let sid = $(this).data('id');
+                    let row = this;
+                    let obj = { id: sid };
+                    let json_data = JSON.stringify(obj);
+                    if (confirm("Are you Sure I One to Delete This Recrod?")) {
+                        $.ajax({
+                            url: `http://localhost/SchoolManagement/Rest_api/test_api_delete`,
+                            type: 'POST',
+                            dataType: 'JSON',
+                            data: json_data,
+                            success: function (resp) {
+                                if (resp.status == true) {
+                                    $(row).closest("tr").fadeOut();
+                                    let m = message('success', resp.mes);
+                                    $('#alert-message').html(m);
+                                } else {
+                                    let m = message('warning', resp.mes);
+                                    $('#alert-message').html(m);
+                                    return false;
+                                }
+                            }
+                        });
+                    }
+                    return false;
+                });
+
+                $('#search').on("keyup", function () {
+                    let search_term = $(this).val();
+                    $('#listRecords').html('');
+
+                    $.ajax({
+                        url: `http://localhost/SchoolManagement/Rest_api/test_api_search?search=${search_term}`,
+                        type: 'get',
+                        success: function (resp) {
+
+                            if (resp.status == true) {
+                                let i = 0;
+
+                                $.each(resp.response, function (key, val) {
+                                    i++
+                                    $('#listRecords').append(`
+                                    <tr class="text-center"> 
+                                        <td>${i}</td>
+                                        <td>${val.name}</td>
+                                        <td>${val.age}</td>
+                                        <td>${val.number}</td>
+                                        <td>${val.gender}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-success" data-id="${val.id}" id="edit-btn" data-toggle="modal" data-target="#edit-model"><i class="bi bi-pencil-square"></i></button>
+
+                                            <button type="button" class="btn btn-danger" data-id="${val.id}" id="delete-btn"><i class="bi bi-trash"></i></button>
+                                            </td>
+                                     </tr>`);
+                                });
+
+
+                            } else {
+                                $('#listRecords').append(` <tr> <td class="text-danger text-center" colspan="6">${resp.mes}</td></tr>`);
+                            }
+                        }
+                    });
+                })
+
+
+            });
+        </script>
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+            </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+            </script>
+    </div>
+</body>
+
+</html>
