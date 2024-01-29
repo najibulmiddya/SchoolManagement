@@ -46,7 +46,7 @@
                             <th class="text-light"> S.NO</th>
                             <th class="text-light">Student Name</th>
                             <th class="text-light">Book Name</th>
-                            <th class="text-light"> Stating Dtte </th>
+                            <th class="text-light"> Stating Date </th>
                             <th class="text-light"> Expiry Date </th>
                             <th class="text-light"> Status</th>
                             <th class="text-light"> Fine</th>
